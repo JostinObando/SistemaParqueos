@@ -13,4 +13,11 @@ public interface IAutomovilRepository
         string? fabricante,
         string? tipo
     );
+
+    Task<int> CrearAsync(PRQAutomoviles entidad);
+
+    Task<bool> ActualizarAsync(PRQAutomoviles entidad);
+
+    Task<bool> EliminarAsync(int id);
 }
+

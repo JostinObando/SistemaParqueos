@@ -4,7 +4,7 @@ using SistemaParqueos.Repositories.Interfaces;
 
 namespace SistemaParqueos.Repositories.Json;
 
-public class IngresoRepositoryJson : IIngresoRepository
+public partial class IngresoRepositoryJson : IIngresoRepository
 {
     private readonly string _carpeta;
 
@@ -111,3 +111,4 @@ public class IngresoRepositoryJson : IIngresoRepository
         }
     }
 }
+

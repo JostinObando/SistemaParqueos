@@ -5,7 +5,7 @@ using SistemaParqueos.Repositories.Interfaces;
 
 namespace SistemaParqueos.Repositories.BaseDatos;
 
-public class IngresoRepositoryBD : IIngresoRepository
+public partial class IngresoRepositoryBD : IIngresoRepository
 {
     private readonly ParqueosContext _context;
 
@@ -90,3 +90,4 @@ public class IngresoRepositoryBD : IIngresoRepository
         }
     }
 }
+

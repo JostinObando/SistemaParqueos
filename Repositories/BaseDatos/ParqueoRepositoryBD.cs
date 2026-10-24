@@ -5,7 +5,7 @@ using SistemaParqueos.Repositories.Interfaces;
 
 namespace SistemaParqueos.Repositories.BaseDatos;
 
-public class ParqueoRepositoryBD : IParqueoRepository
+public partial class ParqueoRepositoryBD : IParqueoRepository
 {
     private readonly ParqueosContext _context;
 
@@ -50,3 +50,4 @@ public class ParqueoRepositoryBD : IParqueoRepository
         return await consulta.OrderBy(x => x.Id).ToListAsync();
     }
 }
+

@@ -4,7 +4,7 @@ using SistemaParqueos.Repositories.Interfaces;
 
 namespace SistemaParqueos.Repositories.Json;
 
-public class AutomovilRepositoryJson : IAutomovilRepository
+public partial class AutomovilRepositoryJson : IAutomovilRepository
 {
     private readonly string _ruta;
 
@@ -56,3 +56,4 @@ public class AutomovilRepositoryJson : IAutomovilRepository
         return consulta.OrderBy(x => x.Id).ToList();
     }
 }
+

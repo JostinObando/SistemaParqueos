@@ -12,4 +12,11 @@ public interface IParqueoRepository
         decimal? precioMinimo,
         decimal? precioMaximo
     );
+
+    Task<int> CrearAsync(PRQParqueos entidad);
+
+    Task<bool> ActualizarAsync(PRQParqueos entidad);
+
+    Task<bool> EliminarAsync(int id);
 }
+

@@ -19,4 +19,11 @@ public interface IIngresoRepository
         DateTime fechaInicio,
         DateTime fechaFin
     );
+
+    Task<int> CrearAsync(PRQIngresos entidad);
+
+    Task<bool> ActualizarAsync(PRQIngresos entidad);
+
+    Task<bool> EliminarAsync(int id);
 }
+

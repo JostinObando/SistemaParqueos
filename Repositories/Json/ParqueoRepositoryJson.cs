@@ -4,7 +4,7 @@ using SistemaParqueos.Repositories.Interfaces;
 
 namespace SistemaParqueos.Repositories.Json;
 
-public class ParqueoRepositoryJson : IParqueoRepository
+public partial class ParqueoRepositoryJson : IParqueoRepository
 {
     private readonly string _ruta;
 
@@ -55,3 +55,4 @@ public class ParqueoRepositoryJson : IParqueoRepository
         return consulta.OrderBy(x => x.Id).ToList();
     }
 }
+

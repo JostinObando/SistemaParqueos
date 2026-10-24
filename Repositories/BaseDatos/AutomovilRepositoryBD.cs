@@ -5,7 +5,7 @@ using SistemaParqueos.Repositories.Interfaces;
 
 namespace SistemaParqueos.Repositories.BaseDatos;
 
-public class AutomovilRepositoryBD : IAutomovilRepository
+public partial class AutomovilRepositoryBD : IAutomovilRepository
 {
     private readonly ParqueosContext _context;
 
@@ -53,3 +53,4 @@ public class AutomovilRepositoryBD : IAutomovilRepository
         return await consulta.OrderBy(x => x.Id).ToListAsync();
     }
 }
+
