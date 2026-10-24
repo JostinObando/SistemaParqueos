@@ -1,0 +1,103 @@
+﻿@model List<SistemaParqueos.Models.Entidades.PRQIngresos>
+
+@{
+    ViewData["Title"] = "Ingresos";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2>Ingresos y salidas</h2>
+        <p class="text-muted">
+            Registro de vehículos y cobro por permanencia
+        </p>
+    </div>
+
+    <a asp-action="Crear" class="btn btn-primary">
+        Registrar ingreso
+    </a>
+</div>
+
+@if (TempData["Exito"] != null)
+{
+    <div class="alert alert-success">@TempData["Exito"]</div>
+}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5>Registros (@Model.Count)</h5>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Consecutivo</th>
+                        <th>Automóvil</th>
+                        <th>Parqueo</th>
+                        <th>Entrada</th>
+                        <th>Salida</th>
+                        <th>Horas</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Consecutivo</td>
+
+                            <td>
+                                @item.IdAutomovilNavigation?.Fabricante
+                                (@item.IdAutomovilNavigation?.Tipo)
+                            </td>
+
+                            <td>@item.IdParqueoNavigation?.Nombre</td>
+
+                            <td>
+                                @item.FechaHoraEntrada.ToString("dd/MM/yyyy HH:mm")
+                            </td>
+
+                            <td>
+                                @(item.FechaHoraSalida?.ToString("dd/MM/yyyy HH:mm") ?? "Pendiente")
+                            </td>
+
+                            <td>
+                                @(item.DuracionHoras?.ToString("N2") ?? "—")
+                            </td>
+
+                            <td>
+                                @(item.MontoTotalPagar.HasValue
+                                    ? "₡" + item.MontoTotalPagar.Value.ToString("N2")
+                                    : "Pendiente")
+                            </td>
+
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a asp-action="Editar"
+                                       asp-route-id="@item.Consecutivo"
+                                       class="btn btn-sm btn-outline-primary">
+                                        Editar
+                                    </a>
+
+                                    <form asp-action="Eliminar"
+                                          asp-route-id="@item.Consecutivo"
+                                          method="post"
+                                          onsubmit="return confirm('¿Eliminar este ingreso?');">
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (Model.Count == 0)
+        {
+            <p class="text-muted">No hay ingresos registrados.</p>
+        }
+    </div>
+</div>

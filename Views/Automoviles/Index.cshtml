@@ -1,0 +1,134 @@
+﻿@model List<SistemaParqueos.Models.Entidades.PRQAutomoviles>
+@{
+    ViewData["Title"] = "Automóviles";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2>Automóviles</h2>
+        <p class="text-muted">Administración de vehículos registrados</p>
+    </div>
+    <a asp-action="Crear" class="btn btn-primary">
+        Nuevo automóvil
+    </a>
+</div>
+
+@if (TempData["Exito"] != null)
+{
+    <div class="alert alert-success">@TempData["Exito"]</div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h5>Filtros de búsqueda</h5>
+
+        <form method="get" class="row g-3">
+            <div class="col-md-3">
+                <label class="form-label">Color</label>
+                <input name="color" value="@ViewBag.Color"
+                       class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Fabricante</label>
+                <input name="fabricante" value="@ViewBag.Fabricante"
+                       class="form-control" />
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">Tipo</label>
+                <select name="tipo" class="form-select">
+                    <option value="">Todos</option>
+                    @foreach (var tipo in new[] { "Sedan", "Moto", "4x4" })
+                    {
+                        <option value="@tipo"
+                                selected="@(ViewBag.Tipo == tipo)">
+                            @tipo
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">Año desde</label>
+                <input name="anioInicio" type="number"
+                       value="@ViewBag.AnioInicio"
+                       class="form-control" />
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">Año hasta</label>
+                <input name="anioFin" type="number"
+                       value="@ViewBag.AnioFin"
+                       class="form-control" />
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-primary">Buscar</button>
+                <a asp-action="Index"
+                   class="btn btn-outline-secondary">Limpiar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5>Automóviles registrados (@Model.Count)</h5>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Fabricante</th>
+                        <th>Tipo</th>
+                        <th>Color</th>
+                        <th>Año</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var auto in Model)
+                    {
+                        <tr>
+                            <td>@auto.Id</td>
+                            <td>@auto.Fabricante</td>
+                            <td>@auto.Tipo</td>
+                            <td>@auto.Color</td>
+                            <td>@auto.Anio</td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a asp-action="Editar"
+                                       asp-route-id="@auto.Id"
+                                       class="btn btn-sm btn-outline-primary">
+                                        Editar
+                                    </a>
+
+                                    <form asp-action="Eliminar"
+                                          asp-route-id="@auto.Id"
+                                          method="post"
+                                          onsubmit="return confirm('¿Eliminar este automóvil?');">
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (Model.Count == 0)
+        {
+            <p class="text-muted">No se encontraron automóviles.</p>
+        }
+    </div>
+</div>

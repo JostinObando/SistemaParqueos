@@ -1,0 +1,140 @@
+﻿@model List<SistemaParqueos.Models.Entidades.PRQIngresos>
+
+@{
+    ViewData["Title"] = "Consultas";
+}
+
+<h2>Consultas de ingresos</h2>
+
+<p class="text-muted mb-4">
+    Filtrar por tipo de automóvil o provincia y rango de fechas.
+</p>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+
+        <form method="get" class="row g-3">
+
+            <div class="col-md-3">
+                <label class="form-label">Buscar por</label>
+
+                <select name="criterio" class="form-select">
+                    <option value="tipo"
+                            selected="@(ViewBag.Criterio != "provincia")">
+                        Tipo de automóvil
+                    </option>
+
+                    <option value="provincia"
+                            selected="@(ViewBag.Criterio == "provincia")">
+                        Provincia
+                    </option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Valor</label>
+
+                <input name="valor"
+                       value="@ViewBag.Valor"
+                       placeholder="Ej. Sedan o Heredia"
+                       class="form-control" required />
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Desde</label>
+
+                <input type="date"
+                       name="desde"
+                       value="@(ViewBag.Desde?.ToString("yyyy-MM-dd"))"
+                       class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Hasta</label>
+
+                <input type="date"
+                       name="hasta"
+                       value="@(ViewBag.Hasta?.ToString("yyyy-MM-dd"))"
+                       class="form-control" />
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-primary">Consultar</button>
+
+                <a asp-action="Index"
+                   class="btn btn-outline-secondary">
+                    Limpiar
+                </a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-warning">@ViewBag.Error</div>
+}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5>Resultados (@Model.Count)</h5>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Consecutivo</th>
+                        <th>Tipo</th>
+                        <th>Provincia</th>
+                        <th>Entrada</th>
+                        <th>Salida</th>
+                        <th>Minutos</th>
+                        <th>Horas</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Consecutivo</td>
+                            <td>@item.IdAutomovilNavigation?.Tipo</td>
+                            <td>@item.IdParqueoNavigation?.Provincia</td>
+
+                            <td>
+                                @item.FechaHoraEntrada.ToString("dd/MM/yyyy HH:mm")
+                            </td>
+
+                            <td>
+                                @(item.FechaHoraSalida?.ToString("dd/MM/yyyy HH:mm") ?? "Pendiente")
+                            </td>
+
+                            <td>
+                                @(item.DuracionMinutos?.ToString("N2") ?? "—")
+                            </td>
+
+                            <td>
+                                @(item.DuracionHoras?.ToString("N2") ?? "—")
+                            </td>
+
+                            <td>
+                                @(item.MontoTotalPagar.HasValue
+                                    ? "₡" + item.MontoTotalPagar.Value.ToString("N2")
+                                    : "Pendiente")
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (Model.Count == 0)
+        {
+            <p class="text-muted">
+                No hay resultados para mostrar.
+            </p>
+        }
+    </div>
+</div>

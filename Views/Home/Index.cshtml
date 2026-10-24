@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="py-4">
+
+    <div class="mb-5">
+        <h1 class="fw-bold">Sistema de Administración de Parqueos</h1>
+
+        <p class="text-muted fs-5">
+            Administración de automóviles, parqueos,
+            ingresos y consultas de registros.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body p-4">
+
+                    <h4>Automóviles</h4>
+
+                    <p class="text-muted">
+                        Registro y consulta de automóviles
+                        por fabricante, color, tipo y año.
+                    </p>
+
+                    <a asp-controller="Automoviles"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Administrar automóviles
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body p-4">
+
+                    <h4>Parqueos</h4>
+
+                    <p class="text-muted">
+                        Administración de parqueos,
+                        ubicaciones y precios por hora.
+                    </p>
+
+                    <a asp-controller="Parqueos"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Administrar parqueos
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body p-4">
+
+                    <h4>Ingresos</h4>
+
+                    <p class="text-muted">
+                        Registro de entradas y salidas,
+                        duración y cálculo del monto a pagar.
+                    </p>
+
+                    <a asp-controller="Ingresos"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Administrar ingresos
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body p-4">
+
+                    <h4>Consultas</h4>
+
+                    <p class="text-muted">
+                        Búsquedas de ingresos por tipo de
+                        automóvil, provincia y rango de fechas.
+                    </p>
+
+                    <a asp-controller="Reportes"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Ver consultas
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
