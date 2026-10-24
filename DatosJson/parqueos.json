@@ -1,0 +1,14 @@
+﻿[
+    {
+        "Nombre":  "Parqueo Central",
+        "Id":  1,
+        "Provincia":  "San Jose",
+        "PrecioPorHora":  1000
+    },
+    {
+        "Nombre":  "Parqueo Aeropuerto",
+        "Id":  2,
+        "Provincia":  "Alajuela",
+        "PrecioPorHora":  1500
+    }
+]

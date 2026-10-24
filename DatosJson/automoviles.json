@@ -1,0 +1,37 @@
+﻿[
+    {
+        "Color":  "Rojo",
+        "Fabricante":  "Toyota",
+        "Id":  1,
+        "Anio":  2020,
+        "Tipo":  "Sedan"
+    },
+    {
+        "Color":  "Azul",
+        "Fabricante":  "Honda",
+        "Id":  2,
+        "Anio":  2022,
+        "Tipo":  "Moto"
+    },
+    {
+        "Color":  "Negro",
+        "Fabricante":  "Hyundai",
+        "Id":  3,
+        "Anio":  2021,
+        "Tipo":  "4x4"
+    },
+    {
+        "Color":  "Blanco",
+        "Fabricante":  "Nissan",
+        "Id":  4,
+        "Anio":  2023,
+        "Tipo":  "Sedan"
+    },
+    {
+        "Color":  "Gris",
+        "Fabricante":  "Suzuki",
+        "Id":  5,
+        "Anio":  2019,
+        "Tipo":  "Moto"
+    }
+]

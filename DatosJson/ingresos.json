@@ -1,0 +1,107 @@
+﻿[
+    {
+        "Consecutivo":  1,
+        "FechaHoraSalida":  "2026-10-01T10:00:00",
+        "IdParqueo":  1,
+        "IdAutomovil":  1,
+        "FechaHoraEntrada":  "2026-10-01T08:00:00"
+    },
+    {
+        "Consecutivo":  2,
+        "FechaHoraSalida":  "2026-10-01T11:30:00",
+        "IdParqueo":  1,
+        "IdAutomovil":  2,
+        "FechaHoraEntrada":  "2026-10-01T09:00:00"
+    },
+    {
+        "Consecutivo":  3,
+        "FechaHoraSalida":  "2026-10-02T08:30:00",
+        "IdParqueo":  2,
+        "IdAutomovil":  3,
+        "FechaHoraEntrada":  "2026-10-02T07:00:00"
+    },
+    {
+        "Consecutivo":  4,
+        "FechaHoraSalida":  "2026-10-02T12:00:00",
+        "IdParqueo":  1,
+        "IdAutomovil":  4,
+        "FechaHoraEntrada":  "2026-10-02T10:00:00"
+    },
+    {
+        "Consecutivo":  5,
+        "FechaHoraSalida":  "2026-10-03T09:30:00",
+        "IdParqueo":  2,
+        "IdAutomovil":  5,
+        "FechaHoraEntrada":  "2026-10-03T08:30:00"
+    },
+    {
+        "Consecutivo":  6,
+        "FechaHoraSalida":  "2026-10-03T16:30:00",
+        "IdParqueo":  1,
+        "IdAutomovil":  3,
+        "FechaHoraEntrada":  "2026-10-03T14:00:00"
+    },
+    {
+        "Consecutivo":  7,
+        "FechaHoraSalida":  "2026-10-04T12:00:00",
+        "IdParqueo":  2,
+        "IdAutomovil":  1,
+        "FechaHoraEntrada":  "2026-10-04T09:00:00"
+    },
+    {
+        "Consecutivo":  8,
+        "FechaHoraSalida":  "2026-10-04T12:30:00",
+        "IdParqueo":  1,
+        "IdAutomovil":  5,
+        "FechaHoraEntrada":  "2026-10-04T11:00:00"
+    },
+    {
+        "Consecutivo":  9,
+        "FechaHoraSalida":  "2026-10-05T10:00:00",
+        "IdParqueo":  2,
+        "IdAutomovil":  2,
+        "FechaHoraEntrada":  "2026-10-05T08:00:00"
+    },
+    {
+        "Consecutivo":  10,
+        "FechaHoraSalida":  "2026-10-05T15:00:00",
+        "IdParqueo":  1,
+        "IdAutomovil":  4,
+        "FechaHoraEntrada":  "2026-10-05T13:00:00"
+    },
+    {
+        "Consecutivo":  11,
+        "FechaHoraSalida":  "2026-10-20T09:00:00",
+        "IdParqueo":  1,
+        "IdAutomovil":  1,
+        "FechaHoraEntrada":  "2026-10-20T08:00:00"
+    },
+    {
+        "Consecutivo":  12,
+        "FechaHoraSalida":  "2026-10-20T13:00:00",
+        "IdParqueo":  2,
+        "IdAutomovil":  3,
+        "FechaHoraEntrada":  "2026-10-20T10:00:00"
+    },
+    {
+        "Consecutivo":  13,
+        "FechaHoraSalida":  "2026-10-21T11:00:00",
+        "IdParqueo":  1,
+        "IdAutomovil":  2,
+        "FechaHoraEntrada":  "2026-10-21T09:00:00"
+    },
+    {
+        "Consecutivo":  14,
+        "FechaHoraSalida":  null,
+        "IdParqueo":  2,
+        "IdAutomovil":  4,
+        "FechaHoraEntrada":  "2026-10-23T08:00:00"
+    },
+    {
+        "Consecutivo":  15,
+        "FechaHoraSalida":  null,
+        "IdParqueo":  1,
+        "IdAutomovil":  5,
+        "FechaHoraEntrada":  "2026-10-23T10:00:00"
+    }
+]
