@@ -1,0 +1,54 @@
+﻿@model SistemaParqueos.Models.Formularios.AutomovilMantenimientoModelo
+
+@{
+    var editar = Model.Id > 0;
+    ViewData["Title"] = editar ? "Editar automóvil" : "Nuevo automóvil";
+}
+
+<h2 class="mb-4">
+    @(editar ? "Editar automóvil" : "Registrar automóvil")
+</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <form asp-action="Guardar" method="post">
+            <input type="hidden" asp-for="Id" />
+
+            <div asp-validation-summary="All"
+                 class="text-danger mb-3"></div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Fabricante" class="form-label"></label>
+                    <input asp-for="Fabricante" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Color" class="form-label"></label>
+                    <input asp-for="Color" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Anio" class="form-label">Año</label>
+                    <input asp-for="Anio" type="number"
+                           class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Tipo" class="form-label"></label>
+                    <select asp-for="Tipo" class="form-select">
+                        <option value="">Seleccione</option>
+                        <option value="Sedan">Sedán</option>
+                        <option value="4x4">4x4</option>
+                        <option value="Moto">Moto</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mt-4 d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    Guardar
+                </button>
+                <a asp-action="Index"
+                   class="btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿@model SistemaParqueos.Models.Formularios.AutomovilMantenimientoModelo
+
+@{
+    ViewData["Title"] = "Detalle del automóvil";
+}
+
+<h2 class="mb-4">Detalle del automóvil</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
+
+            <dt class="col-sm-3">Fabricante</dt>
+            <dd class="col-sm-9">@Model.Fabricante</dd>
+
+            <dt class="col-sm-3">Tipo</dt>
+            <dd class="col-sm-9">@Model.Tipo</dd>
+
+            <dt class="col-sm-3">Color</dt>
+            <dd class="col-sm-9">@Model.Color</dd>
+
+            <dt class="col-sm-3">Año</dt>
+            <dd class="col-sm-9">@Model.Anio</dd>
+        </dl>
+
+        <div class="d-flex gap-2">
+            <a asp-action="Editar" asp-route-id="@Model.Id"
+               class="btn btn-primary">Editar</a>
+            <a asp-action="Index"
+               class="btn btn-outline-secondary">Volver</a>
+        </div>
+    </div>
+</div>

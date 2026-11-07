@@ -1,0 +1,119 @@
+﻿@model List<SistemaParqueos.Models.Formularios.AutomovilMantenimientoModelo>
+
+@{
+    ViewData["Title"] = "Mantenimiento de automóviles";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2>Mantenimiento de automóviles</h2>
+        <p class="text-muted">
+            Consulta por intervalo de años mediante API REST
+        </p>
+    </div>
+    <a asp-action="Crear" class="btn btn-primary">
+        Nuevo automóvil
+    </a>
+</div>
+
+@if (TempData["Exito"] != null)
+{
+    <div class="alert alert-success">@TempData["Exito"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-warning">@ViewBag.Error</div>
+}
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <form asp-action="Index" method="get" class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label">Año inferior</label>
+                <input type="number" name="anioInicio"
+                       min="1900" max="2100"
+                       value="@ViewBag.AnioInicio"
+                       class="form-control" />
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Año superior</label>
+                <input type="number" name="anioFin"
+                       min="1900" max="2100"
+                       value="@ViewBag.AnioFin"
+                       class="form-control" />
+            </div>
+
+            <div class="col-md-4 d-flex align-items-end gap-2">
+                <button class="btn btn-primary">Consultar</button>
+                <a asp-action="Index"
+                   class="btn btn-outline-secondary">Limpiar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5>Automóviles encontrados: @Model.Count</h5>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Fabricante</th>
+                        <th>Tipo</th>
+                        <th>Color</th>
+                        <th>Año</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var auto in Model)
+                    {
+                        <tr>
+                            <td>@auto.Id</td>
+                            <td>@auto.Fabricante</td>
+                            <td>@auto.Tipo</td>
+                            <td>@auto.Color</td>
+                            <td>@auto.Anio</td>
+                            <td>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <a asp-action="Detalles"
+                                       asp-route-id="@auto.Id"
+                                       class="btn btn-sm btn-outline-secondary">
+                                        Detalles
+                                    </a>
+                                    <a asp-action="Editar"
+                                       asp-route-id="@auto.Id"
+                                       class="btn btn-sm btn-outline-primary">
+                                        Editar
+                                    </a>
+                                    <form asp-action="Eliminar"
+                                          asp-route-id="@auto.Id"
+                                          method="post"
+                                          onsubmit="return confirm('¿Eliminar este automóvil?');">
+                                        <button type="submit"
+                                                class="btn btn-sm btn-outline-danger">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (Model.Count == 0)
+        {
+            <p class="text-muted">No hay automóviles para mostrar.</p>
+        }
+    </div>
+</div>

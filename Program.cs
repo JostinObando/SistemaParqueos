@@ -3,6 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient();
 
 // Registrar repositorios PRQ
 builder.Services.AddDbContext<SistemaParqueos.Data.ParqueosContext>(
@@ -64,4 +65,5 @@ app.MapControllerRoute(
 
 
 app.Run();
+
 
