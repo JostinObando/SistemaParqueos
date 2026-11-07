@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Consulta de automóviles e ingresos";
+}
+
+<div id="maestroDetalle"
+     data-api="@Url.Content("~/api/automoviles")">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>Consulta de automóviles e ingresos</h2>
+            <p class="text-muted">Consulta por tipo de automóvil</p>
+        </div>
+
+        <a asp-controller="AutomovilesMantenimiento"
+           asp-action="Index"
+           class="btn btn-outline-secondary">
+            Mantenimiento de automóviles
+        </a>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-6">
+                    <label for="tipoAutomovil" class="form-label">
+                        Tipo de automóvil
+                    </label>
+                    <select id="tipoAutomovil" class="form-select">
+                        <option value="">Cargando tipos...</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <button type="button"
+                            id="btnConsultar"
+                            class="btn btn-primary w-100">
+                        Consultar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mensajeConsulta" class="alert alert-info" role="status">
+        Seleccione un tipo y presione Consultar.
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header">
+            <strong>Maestro: Automóviles</strong>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Fabricante</th>
+                            <th>Tipo</th>
+                            <th>Color</th>
+                            <th>Año</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaAutomoviles">
+                        <tr>
+                            <td colspan="6">
+                                Realice una consulta para mostrar automóviles.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <strong>Detalle: Ingresos del automóvil</strong>
+        </div>
+
+        <div class="card-body">
+            <p id="automovilSeleccionado" class="text-muted">
+                Seleccione un automóvil del listado superior.
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-striped align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID parqueo</th>
+                            <th>Fecha y hora de entrada</th>
+                            <th>Fecha y hora de salida</th>
+                            <th>Duración (minutos)</th>
+                            <th>Duración (horas)</th>
+                            <th>Monto a cancelar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaIngresos">
+                        <tr>
+                            <td colspan="6">
+                                No hay un automóvil seleccionado.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/automoviles-maestro-detalle.js"
+            asp-append-version="true"></script>
+}
